@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:passcontainer/components/cards/password_category_card.dart';
 import 'package:passcontainer/components/inputs/password_generator_input.dart';
 
+import '../controllers/home_controller.dart';
+
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final HomeController controller;
+
+  const HomePage({
+    super.key,
+    required this.controller,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -37,6 +44,11 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 24),
               const PasswordGeneratorInput(),
               const SizedBox(height: 24),
+              const Text(
+                'Grupos de senha',
+                style: TextStyle(fontSize: 20),
+              ),
+              const SizedBox(height: 12),
               LayoutBuilder(
                 builder: (context, constraints) {
                   if (constraints.maxWidth > 480) {
@@ -104,7 +116,38 @@ class _HomePageState extends State<HomePage> {
                     ],
                   );
                 },
-              )
+              ),
+              const SizedBox(height: 24),
+              const Text(
+                'Adicionados recentemente',
+                style: TextStyle(fontSize: 20),
+              ),
+              const SizedBox(height: 12),
+              const ListTile(
+                leading: Icon(Icons.people),
+                title: Text('Instagram'),
+                subtitle: Text('****'),
+                trailing: Icon(Icons.navigate_next_outlined),
+              ),
+              const ListTile(
+                leading: Icon(Icons.attach_money),
+                title: Text('NuBank'),
+                subtitle: Text('****'),
+                trailing: Icon(Icons.navigate_next_outlined),
+              ),
+              const ListTile(
+                leading: Icon(Icons.credit_card),
+                title: Text('Crédito NuBank'),
+                subtitle: Text('Master'),
+                trailing: Icon(Icons.navigate_next_outlined),
+              ),
+              const ListTile(
+                leading: Icon(Icons.people),
+                title: Text('Youtube'),
+                subtitle: Text('****'),
+                trailing: Icon(Icons.navigate_next_outlined),
+              ),
+              const SizedBox(height: 60),
             ],
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:module_navigator/module_navigator.dart';
+import 'package:passcontainer/data/repositories/password_repository.dart';
 import 'package:passcontainer/modules/home/home_module.dart';
 
 import 'theme/app_colors.dart';
@@ -14,6 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialModule(
+      initialBinds: [
+        Bind<PasswordRepository>(
+          (_) => PasswordRepository(),
+        ),
+      ],
       modules: [
         HomeModule(),
       ],
