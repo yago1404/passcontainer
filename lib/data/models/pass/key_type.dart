@@ -1,0 +1,4 @@
+enum KeyType {
+  cpf,
+  email,
+}
