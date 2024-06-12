@@ -38,50 +38,20 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 24),
               const PasswordGeneratorInput(),
               const SizedBox(height: 24),
-              LayoutBuilder(builder: (context, constraints) {
-                if (constraints.maxWidth > 480) {
-                  return Row(
-                    children: [
-                      Flexible(
-                        child: PasswordCategoryCard(
-                          title: 'Redes Sociais',
-                          quantity: 35,
-                          trailingIcon: Icons.people,
-                          onTap: () {},
-                        ),
-                      ),
-                      const SizedBox(width: 14),
-                      Flexible(
-                        child: PasswordCategoryCard(
-                          title: 'Bancos',
-                          quantity: 2,
-                          trailingIcon: Icons.attach_money,
-                          onTap: () {},
-                        ),
-                      ),
-                      const SizedBox(width: 14),
-                      Flexible(
-                        child: PasswordCategoryCard(
-                          title: 'Cartões',
-                          quantity: 35,
-                          trailingIcon: Icons.credit_card,
-                          onTap: () {},
-                        ),
-                      ),
-                    ],
-                  );
-                }
-                return Column(
-                  children: [
-                    PasswordCategoryCard(
-                      title: 'Redes Sociais',
-                      quantity: 35,
-                      trailingIcon: Icons.people,
-                      onTap: () {},
-                    ),
-                    const SizedBox(height: 12),
-                    Row(
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  if (constraints.maxWidth > 480) {
+                    return Row(
                       children: [
+                        Flexible(
+                          child: PasswordCategoryCard(
+                            title: 'Redes Sociais',
+                            quantity: 35,
+                            trailingIcon: Icons.people,
+                            onTap: () {},
+                          ),
+                        ),
+                        const SizedBox(width: 14),
                         Flexible(
                           child: PasswordCategoryCard(
                             title: 'Bancos',
@@ -100,10 +70,42 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ],
-                    ),
-                  ],
-                );
-              })
+                    );
+                  }
+                  return Column(
+                    children: [
+                      PasswordCategoryCard(
+                        title: 'Redes Sociais',
+                        quantity: 35,
+                        trailingIcon: Icons.people,
+                        onTap: () {},
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        children: [
+                          Flexible(
+                            child: PasswordCategoryCard(
+                              title: 'Bancos',
+                              quantity: 2,
+                              trailingIcon: Icons.attach_money,
+                              onTap: () {},
+                            ),
+                          ),
+                          const SizedBox(width: 14),
+                          Flexible(
+                            child: PasswordCategoryCard(
+                              title: 'Cartões',
+                              quantity: 35,
+                              trailingIcon: Icons.credit_card,
+                              onTap: () {},
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  );
+                },
+              )
             ],
           ),
         ),
