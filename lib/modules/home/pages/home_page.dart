@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:passcontainer/components/cards/password_category_card.dart';
+import 'package:passcontainer/components/inputs/password_generator_input.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,6 +35,8 @@ class _HomePageState extends State<HomePage> {
                 'Gerencie sua privacidade',
                 style: TextStyle(fontSize: 30),
               ),
+              const SizedBox(height: 24),
+              const PasswordGeneratorInput(),
               const SizedBox(height: 24),
               LayoutBuilder(builder: (context, constraints) {
                 if (constraints.maxWidth > 480) {
