@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:passcontainer/components/cards/password_category_card.dart';
 
@@ -34,34 +35,72 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(fontSize: 30),
               ),
               const SizedBox(height: 24),
-              PasswordCategoryCard(
-                title: 'Redes Sociais',
-                quantity: 35,
-                trailingIcon: Icons.people,
-                onTap: () {},
-              ),
-              const SizedBox(height: 12),
-              Row(
-                children: [
-                  Flexible(
-                    child: PasswordCategoryCard(
-                      title: 'Bancos',
-                      quantity: 2,
-                      trailingIcon: Icons.attach_money,
-                      onTap: () {},
-                    ),
-                  ),
-                  const SizedBox(width: 14),
-                  Flexible(
-                    child: PasswordCategoryCard(
-                      title: 'Cartões',
+              LayoutBuilder(builder: (context, constraints) {
+                if (constraints.maxWidth > 480) {
+                  return Row(
+                    children: [
+                      Flexible(
+                        child: PasswordCategoryCard(
+                          title: 'Redes Sociais',
+                          quantity: 35,
+                          trailingIcon: Icons.people,
+                          onTap: () {},
+                        ),
+                      ),
+                      const SizedBox(width: 14),
+                      Flexible(
+                        child: PasswordCategoryCard(
+                          title: 'Bancos',
+                          quantity: 2,
+                          trailingIcon: Icons.attach_money,
+                          onTap: () {},
+                        ),
+                      ),
+                      const SizedBox(width: 14),
+                      Flexible(
+                        child: PasswordCategoryCard(
+                          title: 'Cartões',
+                          quantity: 35,
+                          trailingIcon: Icons.credit_card,
+                          onTap: () {},
+                        ),
+                      ),
+                    ],
+                  );
+                }
+                return Column(
+                  children: [
+                    PasswordCategoryCard(
+                      title: 'Redes Sociais',
                       quantity: 35,
-                      trailingIcon: Icons.credit_card,
+                      trailingIcon: Icons.people,
                       onTap: () {},
                     ),
-                  ),
-                ],
-              )
+                    const SizedBox(height: 12),
+                    Row(
+                      children: [
+                        Flexible(
+                          child: PasswordCategoryCard(
+                            title: 'Bancos',
+                            quantity: 2,
+                            trailingIcon: Icons.attach_money,
+                            onTap: () {},
+                          ),
+                        ),
+                        const SizedBox(width: 14),
+                        Flexible(
+                          child: PasswordCategoryCard(
+                            title: 'Cartões',
+                            quantity: 35,
+                            trailingIcon: Icons.credit_card,
+                            onTap: () {},
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              })
             ],
           ),
         ),
