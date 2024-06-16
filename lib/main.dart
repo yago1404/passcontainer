@@ -9,6 +9,7 @@ import 'app_binds.dart';
 import 'utils/app_storage.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await AppStorage.init();
   await dotenv.load(fileName: '.env');
   runApp(const MyApp());
