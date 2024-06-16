@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:module_navigator/module_navigator.dart';
-import 'package:passcontainer/data/repositories/password_repository.dart';
+import 'package:passcontainer/modules/auth/auth_module.dart';
 import 'package:passcontainer/modules/home/home_module.dart';
+import 'package:passcontainer/theme/app_theme.dart';
 
-import 'theme/app_colors.dart';
+import 'app_binds.dart';
+import 'utils/app_storage.dart';
 
-void main() {
+void main() async {
+  await AppStorage.init();
   runApp(const MyApp());
 }
 
@@ -15,27 +18,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialModule(
-      initialBinds: [
-        Bind<PasswordRepository>(
-          (_) => PasswordRepository(),
-        ),
-      ],
+      initialBinds: appBinds,
       modules: [
         HomeModule(),
+        AuthModule(),
       ],
       materialApp: MaterialApp(
-        initialRoute: '/home',
+        initialRoute: '/auth',
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.deepPurple,
-          ),
-          useMaterial3: true,
-        ),
-        darkTheme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: AppColors.backgroundColor,
-        ),
+        theme: AppTheme.theme,
+        darkTheme: AppTheme.darkTheme,
         themeMode: ThemeMode.dark,
       ),
     );
