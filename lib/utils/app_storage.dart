@@ -9,7 +9,7 @@ class AppStorage {
   static Future<AppStorage> init() async {
     final documentDirectory = await getApplicationDocumentsDirectory();
     Hive.init(documentDirectory.path);
-    Box box = await Hive.openBox('game-stats');
+    Box box = await Hive.openBox('passcontainer');
     return AppStorage(box);
   }
 
